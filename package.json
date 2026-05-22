@@ -2,6 +2,7 @@
   "name": "rayli-skills",
   "version": "0.1.0",
   "description": "Installer for RayLi-Muye agent skills.",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "rayli-skills": "bin/rayli-skills.js"

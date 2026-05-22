@@ -29,7 +29,12 @@ npx rayli-skills install replicate-3d-website --target codex
 - `skills/visual/` - visual and frontend workflow skills
 - `.claude-plugin/plugin.json` - plugin manifest for skill installers that understand Claude-style skill repositories
 - `bin/rayli-skills.js` - npm/npx installer for copying skills into Codex or Claude skill directories
+- `LICENSE` - MIT license
 
 ## Skills
 
 - [`replicate-3d-website`](./skills/visual/replicate-3d-website/SKILL.md) - analyze and recreate high-fidelity 3D/WebGL website effects with scoped goals and Three.js prototypes.
+
+## License
+
+MIT
