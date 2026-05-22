@@ -4,24 +4,39 @@ Personal agent skills for repeatable workflows.
 
 ## Install
 
-Install directly from GitHub:
+Recommended: install through the open `skills` CLI:
 
 ```bash
-npx github:RayLi-Muye/skills install replicate-3d-website --target codex
+npx skills@latest add RayLi-Muye/skills -g -a codex -s replicate-3d-website
 ```
 
-Other targets:
+List available skills without installing:
 
 ```bash
-npx github:RayLi-Muye/skills install replicate-3d-website --target claude
-npx github:RayLi-Muye/skills install all --target both --force
+npx skills@latest add RayLi-Muye/skills --list
+```
+
+Install to Claude Code instead:
+
+```bash
+npx skills@latest add RayLi-Muye/skills -g -a claude-code -s replicate-3d-website
+```
+
+Package-specific installer:
+
+```bash
 npx github:RayLi-Muye/skills list
+npx github:RayLi-Muye/skills install replicate-3d-website --target codex
+npx rayli-skills list
+npx rayli-skills install replicate-3d-website --target codex
 ```
 
-After this package is published to npm as `rayli-skills`, the shorter form will also work:
+The official `skills` CLI is preferred for multi-agent installs and updates. The `rayli-skills` package is a small fallback installer for this repository only.
+
+Update skills installed through `skills`:
 
 ```bash
-npx rayli-skills install replicate-3d-website --target codex
+npx skills@latest update replicate-3d-website -g
 ```
 
 ## Structure
