@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replicate 3D Website"
+  short_description: "Plan and build high-fidelity 3D website recreations"
+  default_prompt: "Help me analyze a reference 3D website and turn it into a scoped visual reproduction goal and Three.js prototype."
