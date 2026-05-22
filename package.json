@@ -1,0 +1,33 @@
+{
+  "name": "rayli-skills",
+  "version": "0.1.0",
+  "description": "Installer for RayLi-Muye agent skills.",
+  "type": "module",
+  "bin": {
+    "rayli-skills": "bin/rayli-skills.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    ".claude-plugin",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RayLi-Muye/skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RayLi-Muye/skills/issues"
+  },
+  "homepage": "https://github.com/RayLi-Muye/skills#readme",
+  "keywords": [
+    "codex",
+    "claude",
+    "skills",
+    "agents",
+    "threejs"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
