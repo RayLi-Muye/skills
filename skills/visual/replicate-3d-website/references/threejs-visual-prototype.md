@@ -10,6 +10,8 @@ Use small modules:
 - `events/`: event particles, path activation, state changes
 - `controls/`: UI controls and camera interaction
 - `calibration/`: reference overlay and screenshots
+- `capabilities/`: WebGL/WebGPU support checks and fallback density
+- `metrics/`: FPS, particle count, render path, debug toggles
 
 ## Particle Rendering
 
@@ -27,6 +29,21 @@ For larger or feedback-driven systems:
 - Use ping-pong render targets or `GPUComputationRenderer`.
 - Read back only for labels/picking when necessary.
 
+If using WebGPU:
+
+- Check adapter availability and required limits before initializing the main scene.
+- Preserve enough state to recreate the scene after device loss.
+- Keep a WebGL or reduced-density fallback unless the user accepts WebGPU-only.
+
+## Motion Design
+
+Separate motion layers so they can be tuned independently:
+
+- Ambient: breathing, curl/noise drift, slight orbital or anchor-relative motion
+- Event: fast particles, radial bursts, path activation, fading trails
+- Camera: slow drift or user-controlled movement; avoid hiding golden-shot framing
+- State: presets and seed must recover the same visual after reload
+
 ## Visual Calibration
 
 Always support:
@@ -37,6 +54,7 @@ Always support:
 - Reference overlay or side-by-side screenshot
 - Screenshot export
 - Density controls such as `5k / 10k / 20k / 40k`
+- Current render path display: WebGL shader, WebGL GPGPU, WebGPU, or fallback
 - A mismatch ledger after visual QA: mismatch, evidence, fix, or intentional deviation
 
 ## Common Failure Modes
@@ -47,11 +65,14 @@ Always support:
 - Continuous `Line` geometry used for independent segments creates incorrect spaghetti lines. Use `LineSegments`.
 - Per-frame CPU updates of all positions can bottleneck; move stable motion to shader uniforms/attributes.
 - UI chrome can hide the scene; verify against the reference viewport.
+- WebGPU-only prototypes can fail silently on unsupported browsers; show a clear fallback state.
+- Dense post-processing can make a composition look "premium" while reducing reference fidelity; add it only when the reference needs it.
 
 ## Verification Checklist
 
 - Build/type check passes.
 - WebGL context exists in browser.
+- Preferred GPU path and fallback path are visible or testable.
 - Default particle count renders.
 - Highest intended density does not collapse.
 - Play/pause and trigger event work.
